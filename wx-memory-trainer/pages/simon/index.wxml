@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="title">Simon 视觉序列</view>
+  <view class="subtitle">当前长度：{{length}} 最佳：{{best}}</view>
+  <view class="subtitle">展示 {{showMs}}ms · 间隔 {{gapMs}}ms</view>
+
+  <view class="card" wx:if="{{phase==='idle'}}">
+    <button class="btn primary" bindtap="start">开始</button>
+  </view>
+
+  <view class="card center" wx:if="{{phase==='countdown'}}">
+    <view class="big">{{countdown}}</view>
+  </view>
+
+  <view class="card" wx:if="{{phase==='show' || phase==='input' || phase==='paused'}}">
+    <view class="simon-grid">
+      <view class="cell c0 {{flashIndex===0?'active':''}}" data-idx="0" bindtap="tapCell"></view>
+      <view class="cell c1 {{flashIndex===1?'active':''}}" data-idx="1" bindtap="tapCell"></view>
+      <view class="cell c2 {{flashIndex===2?'active':''}}" data-idx="2" bindtap="tapCell"></view>
+      <view class="cell c3 {{flashIndex===3?'active':''}}" data-idx="3" bindtap="tapCell"></view>
+    </view>
+    <view class="row">
+      <button class="btn" bindtap="togglePause" wx:if="{{phase==='show' || phase==='paused'}}">{{phase==='paused'?'继续':'暂停'}}</button>
+      <button class="btn" bindtap="replay" wx:if="{{phase==='input'}}">重看一遍</button>
+      <button class="btn" bindtap="restartRound">重开本轮</button>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{phase==='result'}}">
+    <view class="subtitle">{{resultText}}</view>
+    <view class="row">
+      <button class="btn" bindtap="next">下一轮</button>
+      <button class="btn" bindtap="replay">重看一遍</button>
+      <button class="btn" bindtap="restartRound">重开本轮</button>
+    </view>
+  </view>
+</view>

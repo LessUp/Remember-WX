@@ -1,0 +1,6 @@
+.grid{display:grid;grid-gap:10px;justify-content:center;margin:16px 0 24px}
+.cell{width:72px;height:72px;background:#e5e7eb;border-radius:8px;transition:filter .12s ease,transform .12s ease}
+.cell.active{background:#2563eb;filter:brightness(1.05);transform:scale(1.03)}
+.row{display:flex;gap:12px;justify-content:center}
+.big{font-size:64px;text-align:center;margin:48px 0}
+.center{text-align:center}

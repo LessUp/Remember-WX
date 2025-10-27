@@ -1,0 +1,2 @@
+.row-input{display:flex;justify-content:space-between;align-items:center;padding:8px 0}
+.input{border:1px solid #e5e7eb;padding:8px 10px;border-radius:8px;background:#fff;min-width:120px;text-align:right}

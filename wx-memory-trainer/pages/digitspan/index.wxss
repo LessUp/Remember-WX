@@ -1,0 +1,4 @@
+.big{font-size:64px;text-align:center;margin:48px 0}
+.input{border:1px solid #e5e7eb;padding:10px;border-radius:8px;background:#fff;margin-bottom:12px}
+.center{text-align:center}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}

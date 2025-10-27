@@ -1,0 +1,5 @@
+.grid{display:grid;grid-template-columns:repeat(3,90px);grid-gap:10px;justify-content:center;margin:16px 0 24px}
+.cell{width:90px;height:90px;background:#e5e7eb;border-radius:8px}
+.cell.active{background:#2563eb}
+.row{display:flex;gap:12px}
+.audio{text-align:center;font-size:20px;margin:12px 0}

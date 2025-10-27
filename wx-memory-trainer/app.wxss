@@ -1,0 +1,24 @@
+page { background-color: #f7f8fa; color: #1f2937; }
+.btn { margin: 12px 0; transition: transform .12s ease, box-shadow .12s ease; }
+.btn:active { transform: scale(0.98); box-shadow: inset 0 0 8px rgba(0,0,0,0.08); }
+.center { text-align: center; }
+.container { padding: 16px; }
+.title { font-size: 22px; font-weight: 600; margin: 16px 0; }
+.subtitle { font-size: 14px; color: #6b7280; }
+.card { background: #ffffff; padding: 16px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); margin-bottom: 16px; }
+.primary { background: #2563eb; color: #fff; }
+.success { background: #16a34a; color: #fff; }
+.warn { background: #f59e0b; color: #fff; }
+.row { display:flex; gap:12px; align-items:center; flex-wrap:wrap }
+.pulse { animation: pulse 1.6s infinite }
+
+/* Animations */
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 rgba(37, 99, 235, 0.0); }
+  50% { transform: scale(1.04); box-shadow: 0 0 16px rgba(37, 99, 235, 0.25); }
+  100% { transform: scale(1); box-shadow: 0 0 0 rgba(37, 99, 235, 0.0); }
+}
+@keyframes glowSweep {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}

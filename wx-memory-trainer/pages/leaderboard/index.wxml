@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="title">排行榜</view>
+
+  <view class="card">
+    <view class="row">
+      <picker mode="selector" range="{{gameOptions}}" value="{{gameIndex}}" bindchange="onGameChange">
+        <view class="btn">选择项目（当前：{{gameLabel}}）</view>
+      </picker>
+      <button class="btn" bindtap="refresh">刷新</button>
+    </view>
+    <view class="subtitle" wx:if="{{!cloudEnabled}}">云未启用，显示为空。请在设置页开启云并配置环境ID。</view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">本地最佳</view>
+    <view class="subtitle">{{localBestText}}</view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">云端排行榜（Top 20）</view>
+    <block wx:for="{{list}}" wx:key="idx">
+      <view class="row-line">
+        <view>#{{index+1}}</view>
+        <view>{{item.name || '匿名'}}：{{item.score}}</view>
+      </view>
+    </block>
+    <view wx:if="{{!list.length}}" class="subtitle">暂无数据</view>
+  </view>
+</view>

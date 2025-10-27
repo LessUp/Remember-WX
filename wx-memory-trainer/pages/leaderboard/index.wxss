@@ -1,0 +1,2 @@
+.row-line{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f1f5f9}
+.row-line:last-child{border-bottom:none}

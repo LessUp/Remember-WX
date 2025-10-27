@@ -1,0 +1,9 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "wx-memory-trainer",
+  "appid": "touristappid",
+  "compileType": "miniprogram",
+  "setting": {
+    "urlCheck": false
+  }
+}

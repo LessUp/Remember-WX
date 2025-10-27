@@ -1,0 +1,10 @@
+.simon-grid{display:grid;grid-template-columns:repeat(2,120px);grid-gap:12px;justify-content:center;margin:16px 0 24px}
+.cell{width:120px;height:120px;border-radius:12px;filter:brightness(0.9);transition:filter .12s ease, transform .12s ease, box-shadow .12s ease; background-size:200% 200%;}
+.cell.active{filter:brightness(1.2);transform:scale(1.03);box-shadow:0 0 12px rgba(0,0,0,0.15);animation: glowSweep 1.2s linear infinite}
+.c0{background:linear-gradient(90deg,#16a34a,#22c55e,#4ade80)}
+.c1{background:linear-gradient(90deg,#dc2626,#ef4444,#f87171)}
+.c2{background:linear-gradient(90deg,#d97706,#f59e0b,#fbbf24)}
+.c3{background:linear-gradient(90deg,#2563eb,#3b82f6,#60a5fa)}
+.row{display:flex;gap:12px;justify-content:center}
+.big{font-size:64px;text-align:center;margin:48px 0}
+.center{text-align:center}

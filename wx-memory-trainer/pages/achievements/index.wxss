@@ -1,0 +1,8 @@
+.badge-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f1f5f9}
+.badge-row:last-child{border-bottom:none}
+.badge-icon{font-size:22px;width:28px;text-align:center}
+.badge-text{flex:1}
+.badge-title{font-weight:600}
+.badge-desc{font-size:12px;color:#6b7280}
+.badge-state{font-size:12px;color:#9ca3af}
+.badge-state.ok{color:#16a34a}

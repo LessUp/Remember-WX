@@ -1,0 +1,2 @@
+.card-title{font-size:18px;font-weight:600;margin-bottom:6px}
+.btn{display:block;padding:12px 16px;border-radius:8px;text-align:center}

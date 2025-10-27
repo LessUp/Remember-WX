@@ -1,0 +1,54 @@
+<view class="container">
+  <view class="title">N-Back</view>
+  <view class="subtitle">当前N：{{n}} 模式：{{mode}} 最佳：{{best}}%</view>
+
+  <view class="card">
+    <picker mode="selector" range="{{nOptions}}" value="{{nIndex}}" bindchange="onNChange">
+      <view class="btn">选择 N（当前：{{n}}）</view>
+    </picker>
+    <picker mode="selector" range="{{modeOptions}}" value="{{modeIndex}}" bindchange="onModeChange">
+      <view class="btn">模式（当前：{{mode}}）</view>
+    </picker>
+    <view class="subtitle">步时 {{stepMs}}ms · 序列长度 {{seqLen}} · 音素 {{audioTokens}}</view>
+    <button class="btn primary pulse" bindtap="start" wx:if="{{phase==='idle'}}">开始</button>
+    <view class="row" wx:if="{{phase==='playing' || phase==='paused'}}">
+      <button class="btn" bindtap="togglePause">{{phase==='paused'?'继续':'暂停'}}</button>
+      <button class="btn" bindtap="restartRound">重开本轮</button>
+      <button class="btn" bindtap="endRound">结束本轮</button>
+      <button class="btn" bindtap="replay" wx:if="{{positions.length || audioSeq.length}}">回放</button>
+    </view>
+    <view class="row" wx:if="{{phase==='result'}}">
+      <button class="btn" bindtap="start">再来一轮</button>
+      <button class="btn" bindtap="replay" wx:if="{{positions.length || audioSeq.length}}">回放</button>
+      <navigator url="/pages/review/index" class="btn">去复盘</navigator>
+      <navigator url="/pages/share/index" class="btn">生成分享海报</navigator>
+    </view>
+  </view>
+
+  <view class="card center" wx:if="{{phase==='countdown'}}">
+    <view class="big">{{countdown}}</view>
+  </view>
+
+  <view class="grid" wx:if="{{mode!=='听觉'}}">
+    <block wx:for="{{grid}}" wx:key="*this">
+      <view class="cell {{currentPos===item?'active':''}}"></view>
+    </block>
+  </view>
+
+  <view class="audio" wx:if="{{mode!=='视觉'}}">音素：{{audioLabel}}</view>
+
+  <view class="card">
+    <view class="subtitle" wx:if="{{mode==='视觉'}}">步骤：{{t}}/{{seqLen}} 正确：{{correctV}}/{{totalV}} 准确率：{{accV}}%</view>
+    <view class="subtitle" wx:if="{{mode==='听觉'}}">步骤：{{t}}/{{seqLen}} 正确：{{correctA}}/{{totalA}} 准确率：{{accA}}%</view>
+    <view class="subtitle" wx:if="{{mode==='双模态'}}">步骤：{{t}}/{{seqLen}} 位置 {{accV}}%（{{correctV}}/{{totalV}}） · 声音 {{accA}}%（{{correctA}}/{{totalA}}） · 平均 {{accuracy}}%</view>
+
+    <view class="row" wx:if="{{mode!=='听觉'}}">
+      <button class="btn success" bindtap="answerVisMatch" disabled="{{!(phase==='playing') || !awaitingV || t < n}}">位置匹配</button>
+      <button class="btn" bindtap="answerVisNonMatch" disabled="{{!(phase==='playing') || !awaitingV || t < n}}">位置不匹配</button>
+    </view>
+    <view class="row" wx:if="{{mode!=='视觉'}}">
+      <button class="btn success" bindtap="answerAudMatch" disabled="{{!(phase==='playing') || !awaitingA || t < n}}">声音匹配</button>
+      <button class="btn" bindtap="answerAudNonMatch" disabled="{{!(phase==='playing') || !awaitingA || t < n}}">声音不匹配</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="title">成就与连续训练</view>
+
+  <view class="card">
+    <view class="card-title">连续训练</view>
+    <view class="subtitle">当前：{{streak.current}} 天 · 最佳：{{streak.best}} 天</view>
+    <view class="subtitle">上次训练：{{streak.lastDate || '—'}}（按自然日计数）</view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">成就徽章</view>
+    <block wx:for="{{badges}}" wx:key="code">
+      <view class="badge-row">
+        <view class="badge-icon">{{item.emoji}}</view>
+        <view class="badge-text">
+          <view class="badge-title">{{item.title}}</view>
+          <view class="badge-desc">{{item.desc}}</view>
+        </view>
+        <view class="badge-state {{item.owned?'ok':''}}">{{item.owned?'已解锁':'未解锁'}}</view>
+      </view>
+    </block>
+    <view wx:if="{{!badges.length}}" class="subtitle">暂无成就</view>
+  </view>
+
+  <view class="card">
+    <navigator url="/pages/share/index" class="btn primary">生成分享海报</navigator>
+    <navigator url="/pages/index/index" class="btn">去训练</navigator>
+  </view>
+</view>

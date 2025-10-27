@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/digitspan/index",
+    "pages/nback/index",
+    "pages/simon/index",
+    "pages/spatial/index",
+    "pages/leaderboard/index",
+    "pages/review/index",
+    "pages/share/index",
+    "pages/achievements/index",
+    "pages/results/index",
+    "pages/settings/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "记忆力训练",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundTextStyle": "light"
+  },
+  "sitemapLocation": "sitemap.json"
+}

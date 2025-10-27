@@ -1,0 +1,55 @@
+<view class="container" wx:if="{{hasReview}}">
+  <view class="title">训练复盘</view>
+  <view class="subtitle">最近一次 · {{review.gameLabel}}</view>
+
+  <view class="card" wx:if="{{review.game==='digitspan'}}">
+    <view class="card-title">数字序列（{{review.payload.mode}}）</view>
+    <view class="subtitle">长度：{{review.payload.length}} · {{review.payload.correct?'正确':'错误'}}</view>
+    <view class="mono">正确：{{review.payload.target}}</view>
+    <view class="mono">输入：{{review.payload.answer}}</view>
+    <view wx:if="{{review.payload.mistakes && review.payload.mistakes.length}}">
+      <view class="card-title">错位</view>
+      <block wx:for="{{review.payload.mistakes}}" wx:key="index">
+        <view class="row-line"><view>#{{index}}</view><view>应 {{item.expected}} · 实 {{item.got}}</view></view>
+      </block>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{review.game==='simon'}}">
+    <view class="card-title">Simon</view>
+    <view class="subtitle">长度：{{review.payload.length}} · {{review.payload.success?'成功':'失败'}}</view>
+    <view class="mono">序列：{{review.payload.sequence.join('-')}}</view>
+    <view wx:if="{{!review.payload.success}}" class="subtitle">错误步：#{{review.payload.wrongIndex}}（应 {{review.payload.expected}} 实 {{review.payload.got}}）</view>
+  </view>
+
+  <view class="card" wx:if="{{review.game==='spatial'}}">
+    <view class="card-title">空间序列</view>
+    <view class="subtitle">网格：{{review.payload.grid}}×{{review.payload.grid}} 长度：{{review.payload.length}} · {{review.payload.success?'成功':'失败'}}</view>
+    <view class="mono">序列：{{review.payload.sequence.join('-')}}</view>
+    <view wx:if="{{!review.payload.success}}" class="subtitle">错误步：#{{review.payload.wrongIndex}}（应 {{review.payload.expected}} 实 {{review.payload.got}}）</view>
+  </view>
+
+  <view class="card" wx:if="{{review.game==='nback'}}">
+    <view class="card-title">N-Back（{{review.payload.mode}}） N={{review.payload.n}}</view>
+    <view class="subtitle" wx:if="{{review.payload.mode!=='听觉'}}">位置：{{review.payload.accV}}%（{{review.payload.correctV}}/{{review.payload.totalV}}）</view>
+    <view class="subtitle" wx:if="{{review.payload.mode!=='视觉'}}">声音：{{review.payload.accA}}%（{{review.payload.correctA}}/{{review.payload.totalA}}）</view>
+    <view class="subtitle">综合：{{review.payload.acc}}%</view>
+    <view class="card-title">错题步骤</view>
+    <block wx:for="{{mistakes}}" wx:key="k">
+      <view class="row-line">
+        <view>#{{item.t}}</view>
+        <view>{{item.type}} · 应 {{item.target?'匹配':'不匹配'}} · {{item.answered===null?'未作答':(item.answered?'匹配':'不匹配')}}</view>
+      </view>
+    </block>
+    <view wx:if="{{!mistakes.length}}" class="subtitle">没有错题，做得很好！</view>
+  </view>
+
+  <view class="card">
+    <navigator url="/pages/index/index" class="btn">返回首页</navigator>
+    <navigator url="/pages/share/index" class="btn primary">生成分享海报</navigator>
+  </view>
+</view>
+<view class="container" wx:else>
+  <view class="title">暂无复盘数据</view>
+  <navigator url="/pages/index/index" class="btn">去训练</navigator>
+</view>

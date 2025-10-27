@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="title">数字序列记忆</view>
+  <view class="subtitle">模式：{{modeLabel}} 当前长度：{{length}} 最佳：{{best}}</view>
+
+  <view class="card">
+    <view class="row">
+      <picker mode="selector" range="{{modeOptions}}" value="{{modeIndex}}" bindchange="onModeChange">
+        <view class="btn">切换模式（当前：{{modeLabel}}）</view>
+      </picker>
+      <view class="btn">展示 {{showMs}}ms · 间隔 {{gapMs}}ms</view>
+    </view>
+    <button class="btn primary pulse" bindtap="start" wx:if="{{phase==='idle'}}">开始</button>
+    <view class="row" wx:if="{{phase==='show' || phase==='paused'}}">
+      <button class="btn" bindtap="togglePause">{{phase==='paused'?'继续':'暂停'}}</button>
+      <button class="btn" bindtap="restartRound">重开本轮</button>
+    </view>
+  </view>
+
+  <view class="card center" wx:if="{{phase==='countdown'}}">
+    <view class="big">{{countdown}}</view>
+  </view>
+
+  <view class="card center" wx:if="{{phase==='show'}}">
+    <view class="big">{{displayDigit}}</view>
+  </view>
+
+  <view class="card" wx:if="{{phase==='input'}}">
+    <input class="input" type="number" placeholder="请输入{{modeLabel}}序列" bindinput="onInput" value="{{inputValue}}"/>
+    <view class="row">
+      <button class="btn success" bindtap="submit">提交</button>
+      <button class="btn" bindtap="replay">重看一遍</button>
+      <button class="btn" bindtap="restartRound">重开本轮</button>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{phase==='result'}}">
+    <view class="subtitle">{{resultText}}</view>
+    <view class="row">
+      <button class="btn" bindtap="next">下一轮</button>
+      <button class="btn" bindtap="replay">重看一遍</button>
+      <button class="btn" bindtap="restartRound">重开本轮</button>
+      <navigator url="/pages/review/index" class="btn">去复盘</navigator>
+      <navigator url="/pages/share/index" class="btn">生成分享海报</navigator>
+    </view>
+  </view>
+</view>

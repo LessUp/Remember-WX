@@ -1,0 +1,65 @@
+<view class="container">
+  <view class="title">成绩</view>
+  <view class="card">
+    <view class="card-title">数字序列记忆</view>
+    <view class="subtitle">正向最佳：{{digitBest}}</view>
+    <view class="subtitle">反向最佳：{{digitBestRev}}</view>
+  </view>
+  <view class="card">
+    <view class="card-title">N-Back（位置/听觉/双模态）</view>
+    <view class="subtitle">最佳准确率：{{nbackBest}}%</view>
+  </view>
+  <view class="card">
+    <view class="card-title">Simon 视觉序列</view>
+    <view class="subtitle">最佳长度：{{simonBest}}</view>
+  </view>
+  <view class="card">
+    <view class="card-title">空间序列</view>
+    <view class="subtitle">最佳长度：{{spatialBest}}</view>
+  </view>
+
+  <view class="title">最近训练</view>
+  <view class="card">
+    <view class="card-title">数字序列（最近5条）</view>
+    <block wx:for="{{digitHistory}}" wx:key="ts">
+      <view class="row-line">
+        <view>{{item.time}}</view>
+        <view>{{item.mode}} 长度 {{item.length}} · {{item.success?'成功':'失败'}}</view>
+      </view>
+    </block>
+    <view wx:if="{{!digitHistory.length}}" class="subtitle">暂无记录</view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">N-Back（最近5条）</view>
+    <block wx:for="{{nbackHistory}}" wx:key="ts">
+      <view class="row-line">
+        <view>{{item.time}}</view>
+        <view>N={{item.n}} · {{item.mode}} · {{item.acc}}%（{{item.correct}}/{{item.total}}）</view>
+      </view>
+    </block>
+    <view wx:if="{{!nbackHistory.length}}" class="subtitle">暂无记录</view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">Simon（最近5条）</view>
+    <block wx:for="{{simonHistory}}" wx:key="ts">
+      <view class="row-line">
+        <view>{{item.time}}</view>
+        <view>长度 {{item.length}} · {{item.success?'成功':'失败'}}</view>
+      </view>
+    </block>
+    <view wx:if="{{!simonHistory.length}}" class="subtitle">暂无记录</view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">空间序列（最近5条）</view>
+    <block wx:for="{{spatialHistory}}" wx:key="ts">
+      <view class="row-line">
+        <view>{{item.time}}</view>
+        <view>{{item.grid}}×{{item.grid}} 长度 {{item.length}} · {{item.success?'成功':'失败'}}</view>
+      </view>
+    </block>
+    <view wx:if="{{!spatialHistory.length}}" class="subtitle">暂无记录</view>
+  </view>
+</view>

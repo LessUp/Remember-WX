@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="title">空间序列</view>
+  <view class="subtitle">网格：{{grid}}×{{grid}} 当前长度：{{length}} 最佳：{{best}}</view>
+  <view class="subtitle">展示 {{showMs}}ms · 间隔 {{gapMs}}ms</view>
+
+  <view class="card" wx:if="{{phase==='idle'}}">
+    <button class="btn primary" bindtap="start">开始</button>
+  </view>
+
+  <view class="card center" wx:if="{{phase==='countdown'}}">
+    <view class="big">{{countdown}}</view>
+  </view>
+
+  <view class="card">
+    <view class="grid" style="grid-template-columns: repeat({{grid}}, 72px);">
+      <block wx:for="{{gridArr}}" wx:key="*this">
+        <view class="cell {{flashIndex===item?'active':''}}" data-idx="{{item}}" bindtap="tapCell"></view>
+      </block>
+    </view>
+    <view class="row">
+      <button class="btn" bindtap="togglePause" wx:if="{{phase==='show' || phase==='paused'}}">{{phase==='paused'?'继续':'暂停'}}</button>
+      <button class="btn" bindtap="replay" wx:if="{{phase==='input' || phase==='result'}}">重看一遍</button>
+      <button class="btn" bindtap="restartRound">重开本轮</button>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{phase==='result'}}">
+    <view class="subtitle">{{resultText}}</view>
+    <view class="row">
+      <button class="btn" bindtap="next">下一轮</button>
+      <button class="btn" bindtap="replay">重看一遍</button>
+      <button class="btn" bindtap="restartRound">重开本轮</button>
+    </view>
+  </view>
+</view>

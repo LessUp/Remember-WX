@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="title">记忆力训练</view>
+  <view class="subtitle">选择训练项目</view>
+
+  <view class="card">
+    <view class="card-title">数字序列记忆</view>
+    <view class="subtitle">正向最佳：{{digitBest}}</view>
+    <view class="subtitle">反向最佳：{{digitBestRev}}</view>
+    <navigator url="/pages/digitspan/index" class="btn primary">开始训练</navigator>
+  </view>
+
+  <view class="card">
+    <view class="card-title">N-Back（位置/听觉/双模态）</view>
+    <view class="subtitle">最佳准确率：{{nbackBest}}%</view>
+    <navigator url="/pages/nback/index" class="btn success">开始训练</navigator>
+  </view>
+
+  <view class="card">
+    <view class="card-title">Simon 视觉序列</view>
+    <view class="subtitle">最佳长度：{{simonBest}}</view>
+    <navigator url="/pages/simon/index" class="btn">开始训练</navigator>
+  </view>
+
+  <view class="card">
+    <view class="card-title">空间序列</view>
+    <view class="subtitle">最佳长度：{{spatialBest}}</view>
+    <navigator url="/pages/spatial/index" class="btn">开始训练</navigator>
+  </view>
+
+  <view class="card">
+    <navigator url="/pages/leaderboard/index" class="btn">排行榜</navigator>
+    <navigator url="/pages/results/index" class="btn">查看成绩</navigator>
+    <navigator url="/pages/achievements/index" class="btn">成就与连续训练</navigator>
+    <navigator url="/pages/share/index" class="btn">生成分享海报</navigator>
+    <navigator url="/pages/settings/index" class="btn warn">设置</navigator>
+  </view>
+</view>

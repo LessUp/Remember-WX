@@ -1,0 +1,108 @@
+<view class="container">
+  <view class="title">设置</view>
+
+  <view class="card">
+    <view class="card-title">难度预设</view>
+    <view class="row">
+      <button class="btn" bindtap="applyPresetBeginner">初级</button>
+      <button class="btn" bindtap="applyPresetStandard">标准</button>
+      <button class="btn" bindtap="applyPresetAdvanced">进阶</button>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">数字序列参数</view>
+    <view class="row-input">
+      <text>展示(ms)</text>
+      <input class="input" type="number" value="{{showMs}}" bindinput="onChangeShowMs"/>
+    </view>
+    <view class="row-input">
+      <text>间隔(ms)</text>
+      <input class="input" type="number" value="{{gapMs}}" bindinput="onChangeGapMs"/>
+    </view>
+    <view class="row-input">
+      <text>起始长度</text>
+      <input class="input" type="number" value="{{startLen}}" bindinput="onChangeStartLen"/>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">N-Back 参数</view>
+    <view class="row">
+      <picker mode="selector" range="{{nbackModeOptions}}" value="{{nbackModeIndex}}" bindchange="onChangeNbackMode">
+        <view class="btn">模式（当前：{{nbackMode}}）</view>
+      </picker>
+    </view>
+    <view class="row-input">
+      <text>步时(ms)</text>
+      <input class="input" type="number" value="{{stepMs}}" bindinput="onChangeStepMs"/>
+    </view>
+    <view class="row-input">
+      <text>序列长度</text>
+      <input class="input" type="number" value="{{seqLen}}" bindinput="onChangeSeqLen"/>
+    </view>
+    <view class="row-input">
+      <text>音素数量</text>
+      <input class="input" type="number" value="{{audioTokens}}" bindinput="onChangeAudioTokens"/>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">Simon 参数</view>
+    <view class="row-input">
+      <text>展示(ms)</text>
+      <input class="input" type="number" value="{{simonShowMs}}" bindinput="onChangeSimonShowMs"/>
+    </view>
+    <view class="row-input">
+      <text>间隔(ms)</text>
+      <input class="input" type="number" value="{{simonGapMs}}" bindinput="onChangeSimonGapMs"/>
+    </view>
+    <view class="row-input">
+      <text>起始长度</text>
+      <input class="input" type="number" value="{{simonStartLen}}" bindinput="onChangeSimonStartLen"/>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">空间序列参数</view>
+    <view class="row-input">
+      <text>网格大小</text>
+      <input class="input" type="number" value="{{spatialGrid}}" bindinput="onChangeSpatialGrid"/>
+    </view>
+    <view class="row-input">
+      <text>展示(ms)</text>
+      <input class="input" type="number" value="{{spatialShowMs}}" bindinput="onChangeSpatialShowMs"/>
+    </view>
+    <view class="row-input">
+      <text>间隔(ms)</text>
+      <input class="input" type="number" value="{{spatialGapMs}}" bindinput="onChangeSpatialGapMs"/>
+    </view>
+    <view class="row-input">
+      <text>起始长度</text>
+      <input class="input" type="number" value="{{spatialStartLen}}" bindinput="onChangeSpatialStartLen"/>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">云同步（占位）</view>
+    <view class="row-input">
+      <text>启用云同步</text>
+      <switch checked="{{cloudEnabled}}" bindchange="onToggleCloud"/>
+    </view>
+    <view class="row-input">
+      <text>环境ID</text>
+      <input class="input" placeholder="如：prod-xxxxxx" value="{{cloudEnvId}}" bindinput="onChangeCloudEnv"/>
+    </view>
+  </view>
+
+  <view class="card">
+    <button class="btn primary" bindtap="save">保存设置</button>
+    <button class="btn" bindtap="resetDefaults">恢复默认</button>
+  </view>
+
+  <view class="card">
+    <button class="btn warn" bindtap="clearScores">清除成绩</button>
+    <button class="btn" bindtap="clearHistories">清除历史</button>
+    <button class="btn" bindtap="clearAll">清除全部</button>
+  </view>
+</view>
