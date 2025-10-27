@@ -1,0 +1,29 @@
+# General
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+
+# Editor directories
+.idea/
+.vscode/
+.history/
+
+# Dependency directories
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# WeChat Developer Tool generated files
+project.private.*
+project.config.json.backup
+miniprogram/
+wechat_devtools/
+
+# Local cache / build outputs
+*~
+logs/
+dist/
+coverage/

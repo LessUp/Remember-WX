@@ -1,0 +1,17 @@
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.mp3 binary
+*.wav binary
+
+# Keep JSON/WXML/WXSS normalized
+*.json text
+*.wxml text
+*.wxss text
+*.wxs text
+*.js text
+*.ts text
+*.md text
