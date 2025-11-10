@@ -121,7 +121,7 @@ function setSettings(s) {
 
 function resetSettingsDefaults(){ set(KEY_SETTINGS, DEFAULT_SETTINGS) }
 
-function pushHistory(key, item, max=5) {
+function pushHistory(key, item, max=20) {
   const arr = Array.isArray(get(key, [])) ? get(key, []) : []
   arr.unshift(item)
   if (arr.length > max) arr.length = max

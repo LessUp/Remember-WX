@@ -115,8 +115,10 @@ Page({
     storage.addSimonHistory({ ts:Date.now(), length:this.data.length, success })
 
     // 成就与连续训练
-    storage.updateStreakOnTraining()
+    const st = storage.updateStreakOnTraining()
     storage.addAchievement('first_train')
+    if(st.current>=3) storage.addAchievement('streak_3')
+    if(st.current>=7) storage.addAchievement('streak_7')
     if(storage.getBestSimon()>=10) storage.addAchievement('simon10')
 
     // 复盘
