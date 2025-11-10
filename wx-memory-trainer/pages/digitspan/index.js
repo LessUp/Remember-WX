@@ -152,8 +152,10 @@ Page({
     // 记录历史
     storage.addDigitspanHistory({ ts: Date.now(), mode: this.data.modeLabel, length: this.data.length, success: correct })
     // 成就与连续训练
-    storage.updateStreakOnTraining();
+    const st = storage.updateStreakOnTraining();
     storage.addAchievement('first_train');
+    if(st.current>=3) storage.addAchievement('streak_3');
+    if(st.current>=7) storage.addAchievement('streak_7');
     const curBest = this.data.modeIndex===0 ? storage.getBestDigitspan() : storage.getBestDigitspanRev()
     if(curBest>=10) storage.addAchievement('digit10')
 

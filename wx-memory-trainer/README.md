@@ -62,6 +62,16 @@ wx-memory-trainer/
 4. **预览与调试**
    - 在微信开发者工具中点击「预览 / 真机调试」即可体验训练流程。
 
+## 自动化测试与 CI
+
+- 项目根目录引入了 [Vitest](https://vitest.dev/) 单元测试框架，用于覆盖关键的本地存储与成就逻辑。
+- 在本地运行测试：
+  ```bash
+  npm install
+  npm test
+  ```
+- 仓库自带 GitHub Actions (`.github/workflows/ci.yml`)，会在提交与 Pull Request 时执行上述测试流程，确保核心逻辑稳定可靠。
+
 ## 数据与配置说明
 
 - `utils/storage.js`
