@@ -8,7 +8,7 @@
       </picker>
       <button class="btn" bindtap="refresh">刷新</button>
     </view>
-    <view class="subtitle" wx:if="{{!cloudEnabled}}">云未启用，显示为空。请在设置页开启云并配置环境ID。</view>
+    <view class="subtitle" wx:if="{{!cloudEnabled}}">当前为本地体验版本，云端排行榜默认关闭。你仍可查看本机最佳成绩；如需云排行榜，请在设置页开启云并配置环境ID。</view>
   </view>
 
   <view class="card">

@@ -59,26 +59,26 @@ function getSettings() {
   const gl = s.global || {}
   return {
     digitspan: {
-      showMs: Math.max(200, Number(ds.showMs || DEFAULT_SETTINGS.digitspan.showMs)),
-      gapMs: Math.max(0, Number(ds.gapMs || DEFAULT_SETTINGS.digitspan.gapMs)),
-      startLen: Math.max(3, Number(ds.startLen || DEFAULT_SETTINGS.digitspan.startLen))
+      showMs: Math.max(200, Number(ds.showMs ?? DEFAULT_SETTINGS.digitspan.showMs)),
+      gapMs: Math.max(0, Number(ds.gapMs ?? DEFAULT_SETTINGS.digitspan.gapMs)),
+      startLen: Math.max(3, Number(ds.startLen ?? DEFAULT_SETTINGS.digitspan.startLen))
     },
     nback: {
-      stepMs: Math.max(500, Number(nb.stepMs || DEFAULT_SETTINGS.nback.stepMs)),
-      seqLen: Math.max(10, Number(nb.seqLen || DEFAULT_SETTINGS.nback.seqLen)),
+      stepMs: Math.max(500, Number(nb.stepMs ?? DEFAULT_SETTINGS.nback.stepMs)),
+      seqLen: Math.max(10, Number(nb.seqLen ?? DEFAULT_SETTINGS.nback.seqLen)),
       mode: (nb.mode || DEFAULT_SETTINGS.nback.mode),
-      audioTokens: Math.min(8, Math.max(2, Number(nb.audioTokens || DEFAULT_SETTINGS.nback.audioTokens)))
+      audioTokens: Math.min(8, Math.max(2, Number(nb.audioTokens ?? DEFAULT_SETTINGS.nback.audioTokens)))
     },
     simon: {
-      showMs: Math.max(200, Number(sm.showMs || DEFAULT_SETTINGS.simon.showMs)),
-      gapMs: Math.max(0, Number(sm.gapMs || DEFAULT_SETTINGS.simon.gapMs)),
-      startLen: Math.max(1, Number(sm.startLen || DEFAULT_SETTINGS.simon.startLen))
+      showMs: Math.max(200, Number(sm.showMs ?? DEFAULT_SETTINGS.simon.showMs)),
+      gapMs: Math.max(0, Number(sm.gapMs ?? DEFAULT_SETTINGS.simon.gapMs)),
+      startLen: Math.max(1, Number(sm.startLen ?? DEFAULT_SETTINGS.simon.startLen))
     },
     spatial: {
-      grid: Math.min(6, Math.max(2, Number(sp.grid || DEFAULT_SETTINGS.spatial.grid))),
-      showMs: Math.max(200, Number(sp.showMs || DEFAULT_SETTINGS.spatial.showMs)),
-      gapMs: Math.max(0, Number(sp.gapMs || DEFAULT_SETTINGS.spatial.gapMs)),
-      startLen: Math.max(2, Number(sp.startLen || DEFAULT_SETTINGS.spatial.startLen))
+      grid: Math.min(6, Math.max(2, Number(sp.grid ?? DEFAULT_SETTINGS.spatial.grid))),
+      showMs: Math.max(200, Number(sp.showMs ?? DEFAULT_SETTINGS.spatial.showMs)),
+      gapMs: Math.max(0, Number(sp.gapMs ?? DEFAULT_SETTINGS.spatial.gapMs)),
+      startLen: Math.max(2, Number(sp.startLen ?? DEFAULT_SETTINGS.spatial.startLen))
     },
     global: {
       cloudEnabled: !!(gl.cloudEnabled ?? DEFAULT_SETTINGS.global.cloudEnabled),

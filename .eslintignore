@@ -1,0 +1,4 @@
+node_modules/
+.git/
+wx-memory-trainer/project.config.json
+wx-memory-trainer/sitemap.json
