@@ -24,7 +24,7 @@ function get(key, defVal) {
 }
 
 function set(key, value) {
-  try { wx.setStorageSync(key, value) } catch (e) {}
+  try { wx.setStorageSync(key, value) } catch (e) { void e }
 }
 
 function getBestDigitspan() { return get(KEY_DIGITSPAN, 0) }
